@@ -11,6 +11,7 @@ import { Login } from './components/loginPage/login'
 import { SignUp } from './components/signuppage/singup'
 import { AddEmployer } from './components/addeployer'
 import { EditEmployer } from './components/editEmployer'
+import { HomePage } from './components/homePage'
 
 function App() {
 
@@ -18,6 +19,7 @@ function App() {
     <div>
       <BrowserRouter>
         <Routes>
+          <Route path='/' element={<HomePage />}></Route>
           <Route path='login' element={<Login />}></Route>
           <Route path='signup' element={<SignUp />}></Route>
           <Route path='dashbord' element={<Dashbord />}>

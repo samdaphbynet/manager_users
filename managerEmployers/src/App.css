@@ -349,3 +349,7 @@ input, select{
   height: 50px;
   border-radius: 50%;
 }
+
+.homepage {
+  margin: 100px;
+}
