@@ -15,7 +15,7 @@ export const SignUp = () => {
             password: event.target.elements.password.value
         };
 
-        await axios.post("http://localhost:5000/signup", formData)
+        await axios.post("http://localhost:8080/signup", formData)
             .then(res => {
                 navigate("/login")
             })

@@ -19,14 +19,14 @@ export const EditEmployer = () => {
     const [category, setCategory] = useState([]);
 
     useEffect(() => {
-        axios.get("http://localhost:5000/category")
+        axios.get("http://localhost:8080/category")
             .then(res => {
                 if (res.data.Status) {
                     setCategory(res.data.Data || []); // Assurez-vous que Data est défini et est un tableau
                 }
             }).catch(err => console.log(err));
 
-            axios.get("http://localhost:5000/employ/"+id)
+            axios.get("http://localhost:8080/employ/"+id)
             .then(result => {
                 setEmployer({
                     ...employer,
@@ -45,7 +45,7 @@ export const EditEmployer = () => {
     const handleSubmit = (event) => {
         event.preventDefault();
 
-        axios.put("http://localhost:5000/edit_employer/"+id, employer)
+        axios.put("http://localhost:8080/edit_employer/"+id, employer)
             .then(resuslt => {
                 if (resuslt.data.Status) {
                     navigate("/dashbord/employer")

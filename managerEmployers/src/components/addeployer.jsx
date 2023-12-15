@@ -18,7 +18,7 @@ export const AddEmployer = () => {
     const [category, setCategory] = useState([]);
 
     useEffect(() => {
-        axios.get("http://localhost:5000/category")
+        axios.get("http://localhost:8080/category")
             .then(res => {
                 if (res.data.Status) {
                     setCategory(res.data.Data || []); // Assurez-vous que Data est défini et est un tableau
@@ -39,7 +39,7 @@ export const AddEmployer = () => {
             formData.append('category_id', employer.category_id);
             formData.append('image', employer.image);
 
-        axios.post("http://localhost:5000/add_employer", formData, {
+        axios.post("http://localhost:8080/add_employer", formData, {
             headers: {
                 'Content-Type': 'multipart/form-data'
             },

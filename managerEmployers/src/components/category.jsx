@@ -6,7 +6,7 @@ export const Category = () => {
     const [category, setCategory] = useState([]);
 
     useEffect(() => {
-        axios.get("http://localhost:5000/category")
+        axios.get("http://localhost:8080/category")
             .then(res => {
                 if (res.data.Status) {
                     setCategory(res.data.Data || []); // Assurez-vous que Data est défini et est un tableau
