@@ -36,12 +36,8 @@ db.connect((err) => {
     }
 });
 
-app.post("/", (err, data) => {
-    if (err) {
-        return err
-    }else {
-        return data.json("success")
-    }
+app.get("/", (err, res) => {
+    return res.json("success")
 })
 
 app.post("/signup", async (request, response) => {
