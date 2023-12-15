@@ -36,6 +36,14 @@ db.connect((err) => {
     }
 });
 
+app.post("/", (err, data) => {
+    if (err) {
+        return err
+    }else {
+        return data.json("success")
+    }
+})
+
 app.post("/signup", async (request, response) => {
     const sql = "INSERT INTO employer(`name`, `email`, `password`) VALUES (?)"
     const  values = [
