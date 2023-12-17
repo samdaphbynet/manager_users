@@ -10,7 +10,7 @@ const path = require("path")
 
 const app = express();
 app.use(cors({
-    origin: ["https://manager-users-server.vercel.app"],
+    origin: ["https://manager-users-server.vercel.app", "http://localhost:5173"],
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
 }));
@@ -27,16 +27,16 @@ const db = mysql.createPool({
     database: process.env.DB_DATABASE
 })
 
-app.use('/', (err, res) => {
+app.get('/', (err, res) => {
     return res.json("success")
 })
 
-app.post("/signup", async (request, response) => {
+app.post("/signup", (request, response) => {
     const sql = "INSERT INTO employer(`name`, `email`, `password`) VALUES (?)"
     const  values = [
-        await request.body.name,
-        await request.body.email,
-        await request.body.password
+        request.body.name,
+        request.body.email,
+        request.body.password
     ]
     db.query(sql,  [values], (err, result) => {
         if (err) {
@@ -219,6 +219,8 @@ app.get("/salarytotal", (req, res) => {
     })
 })
 
-app.listen(8080, () => {
-    console.log("Listening on port 8080")
-})
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+});

@@ -60,32 +60,5 @@ export const Login = () => {
                 </form>
             </div>
         </div>
-        // <div className ="row">
-	    //     <div className="col-md-6 mx-auto p-0">
-		//         <div className="card">
-        //             <div className="login-box">
-	    //                 <div className="login-snip">
-		//                     <div className="login-space">
-		// 	                    <form className="login" action="" onSubmit={handleSubmit}>
-		// 		                    <div className="group">
-		// 			                    <label htmlFor="user" className="label">email</label>
-		// 			                    <input name="email" type="text" className="input"  placeholder="Enter your email" onChange={handleInput}/>
-										
-		// 		                    </div>
-		// 		                    <div className="group">
-		// 			                    <label htmlFor="pass" className="label">Password</label>
-		// 			                    <input name="password" type="password" className="input" data-type="password" placeholder="Enter your password" onChange={handleInput}/>
-									
-		// 		                    </div>
-		// 		                    <div className="group">
-		// 			                    <input type="submit" className="button" value="Sign In"/>
-		// 		                    </div>
-		// 	                    </form>
-		//                     </div>
-	    //                 </div>
-        //             </div>   
-        //         </div>
-        //     </div>
-        // </div>
     )
 }
