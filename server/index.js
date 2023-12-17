@@ -9,11 +9,12 @@ const multer = require("multer")
 const path = require("path")
 
 const app = express();
-app.use(cors({
-    origin: ["https://manager-users-server.vercel.app", "http://localhost:5173"],
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    credentials: true,
-}));
+app.use(cors());
+// app.use(cors({
+//     origin: ["https://manager-users-server.vercel.app", "http://localhost:5173"],
+//     methods: ["GET", "POST", "PUT", "DELETE"],
+//     credentials: true,
+// }));
 
 app.use(express.json());
 app.use(express.static("public"))
