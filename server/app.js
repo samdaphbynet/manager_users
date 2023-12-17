@@ -1,6 +1,9 @@
 const express = require("express")
 const mysql = require("mysql")
 const cors = require("cors")
+const dotenv = require('dotenv')
+
+dotenv.config();
 
 const multer = require("multer")
 const path = require("path")
@@ -11,30 +14,18 @@ app.use(cors({
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
 }));
-// app.use((req, res, next) => {
-//     res.header('Access-Control-Allow-Origin', 'https://62.72.37.154');
-//     res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-//     res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
-//     next();
-//   });
+
 app.use(express.json());
 app.use(express.static("public"))
 
 
-const db = mysql.createConnection({
-    host: '62.72.37.154',
-    user: 'u870660944_zidani',
-    password: 'Dimafibali321',
-    database: 'u870660944_manager_users'
+const db = mysql.createPool({
+    connectionLimit: 10,
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_DATABASE
 })
-
-db.connect((err) => {
-    if (err) {
-        console.log("Error connecting to database", err)
-    } else {
-        console.log("Database connected successfully")
-    }
-});
 
 app.get("/", (err, res) => {
     return res.json("success")
@@ -49,6 +40,7 @@ app.post("/signup", async (request, response) => {
     ]
     db.query(sql,  [values], (err, result) => {
         if (err) {
+            console.error("Error executing SQL query", err)
             return response.json({Status: false, Error: "Error creating user",err})
         } 
         return  response.json({Status: true, Result:result})
