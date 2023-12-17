@@ -21,7 +21,7 @@ export const Login = () => {
 	const handleSubmit = (event) => {
         event.preventDefault();
 
-			axios.post("https://https://manager-users-server.vercel.app//login", values)
+			axios.post("https://https://manager-users-server.vercel.app/login", values)
 				.then(res => {
 					if (res.data === "Success") {
 					    navigate('/dashbord')
