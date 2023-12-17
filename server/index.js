@@ -10,7 +10,7 @@ const path = require("path")
 
 const app = express();
 app.use(cors({
-    origin: ["https://manager-users-client.vercel.app/"],
+    origin: ["http://localhost:5173"],
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
 }));
