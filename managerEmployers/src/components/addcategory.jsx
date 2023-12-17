@@ -16,7 +16,7 @@ export const AddCategory = () => {
                 return;
             }
 
-            const response = await axios.post("http://localhost:8080/add_category", { category });
+            const response = await axios.post("https://https://manager-users-server.vercel.app/add_category", { category });
 
             if (response.data.Status) {
                 navigate("/dashbord/category");

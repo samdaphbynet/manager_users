@@ -45,7 +45,7 @@ export const EditEmployer = () => {
     const handleSubmit = (event) => {
         event.preventDefault();
 
-        axios.put("http://localhost:8080/edit_employer/"+id, employer)
+        axios.put("https://https://manager-users-server.vercel.app/edit_employer/"+id, employer)
             .then(resuslt => {
                 if (resuslt.data.Status) {
                     navigate("/dashbord/employer")

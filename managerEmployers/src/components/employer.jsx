@@ -17,7 +17,7 @@ export const Employer = () => {
     const [employ, setEmployer] = useState([]);
 
     useEffect(() => {
-        axios.get("http://localhost:8080/employ")
+        axios.get("https://https://manager-users-server.vercel.app/employ")
             .then(res => {
                 if (res.data.Status) {
                     setEmployer(res.data.Data)
@@ -26,7 +26,7 @@ export const Employer = () => {
     }, [])
 
     const handleDelete = (id) => {
-        axios.delete("http://localhost:8080/delete/"+id)
+        axios.delete("https://https://manager-users-server.vercel.app/delete/"+id)
             .then(res => {
                 if (res.data.Status) {
                     window.location.reload(false);
@@ -58,7 +58,7 @@ export const Employer = () => {
                         employ && employ.map((item) => (
                             <tr key={item.id}>
                                 <td>{item.name}</td>
-                                <td><img className="image" src={`http://localhost:8080/images/` + item.image} alt="" /></td>
+                                <td><img className="image" src={`https://https://manager-users-server.vercel.app/images/` + item.image} alt="" /></td>
                                 <td>{item.email}</td>
                                 <td>{item.address}</td>
                                 <td>{item.salary}</td>
