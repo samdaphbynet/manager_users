@@ -27,10 +27,6 @@ const db = mysql.createPool({
     database: process.env.DB_DATABASE
 })
 
-app.get("/", (err, res) => {
-    return res.json("success")
-})
-
 app.post("/signup", async (request, response) => {
     const sql = "INSERT INTO employer(`name`, `email`, `password`) VALUES (?)"
     const  values = [
