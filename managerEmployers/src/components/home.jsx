@@ -16,7 +16,7 @@ export const Home = () => {
   }, []);
 
   const coudAdmins = async () => {
-    await axios.get("https://https://manager-users-server.vercel.app/admin").then((result) => {
+    await axios.get("https://manager-users-server.vercel.app/admin").then((result) => {
       console.log(result.data);
       if (result.data.Status) {
         setAdminTotal(result.data.Result[0].admin);
@@ -25,7 +25,7 @@ export const Home = () => {
   };
 
   const listOfAdmin = async () => {
-    await axios.get("https://https://manager-users-server.vercel.app/listadmin")
+    await axios.get("https://manager-users-server.vercel.app/listadmin")
       .then((result) => {
         if (result.data.Status) {
           setListAdmin(result.data.Result);
@@ -35,14 +35,14 @@ export const Home = () => {
   };
 
   const countEmployers = async () => {
-    await axios.get('https://https://manager-users-server.vercel.app/countemployer')
+    await axios.get('https://manager-users-server.vercel.app/countemployer')
       .then(result => {
         setemployerTotal(result.data[0].employer)
       })
   }
 
   const countSalary = async () => {
-    await axios.get("https://https://manager-users-server.vercel.app/salarytotal")
+    await axios.get("https://manager-users-server.vercel.app/salarytotal")
       .then(result => {
         setSalaryTotal(result.data.Data[0].salarytest)
       }).catch(err => console.log(err))

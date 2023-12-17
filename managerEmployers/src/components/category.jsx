@@ -6,7 +6,7 @@ export const Category = () => {
     const [category, setCategory] = useState([]);
 
     useEffect(() => {
-        axios.get("https://https://manager-users-server.vercel.app/category")
+        axios.get("https://manager-users-server.vercel.app/category")
             .then(res => {
                 if (res.data.Status) {
                     setCategory(res.data.Data || []); // Assurez-vous que Data est défini et est un tableau

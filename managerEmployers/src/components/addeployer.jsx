@@ -39,7 +39,7 @@ export const AddEmployer = () => {
             formData.append('category_id', employer.category_id);
             formData.append('image', employer.image);
 
-        axios.post("https://https://manager-users-server.vercel.app/add_employer", formData, {
+        axios.post("https://manager-users-server.vercel.app/add_employer", formData, {
             headers: {
                 'Content-Type': 'multipart/form-data'
             },

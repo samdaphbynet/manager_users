@@ -15,7 +15,7 @@ export const SignUp = () => {
             password: event.target.elements.password.value
         };
 
-        await axios.post("https://https://manager-users-server.vercel.app/signup", formData)
+        await axios.post("https://manager-users-server.vercel.app/signup", formData)
             .then(res => {
                 navigate("/login")
             })

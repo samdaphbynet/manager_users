@@ -19,14 +19,14 @@ export const EditEmployer = () => {
     const [category, setCategory] = useState([]);
 
     useEffect(() => {
-        axios.get("http://localhost:8080/category")
+        axios.get("https://manager-users-server.vercel.app/category")
             .then(res => {
                 if (res.data.Status) {
                     setCategory(res.data.Data || []); // Assurez-vous que Data est défini et est un tableau
                 }
             }).catch(err => console.log(err));
 
-            axios.get("http://localhost:8080/employ/"+id)
+            axios.get("https://manager-users-server.vercel.app/employ/"+id)
             .then(result => {
                 setEmployer({
                     ...employer,
@@ -45,7 +45,7 @@ export const EditEmployer = () => {
     const handleSubmit = (event) => {
         event.preventDefault();
 
-        axios.put("https://https://manager-users-server.vercel.app/edit_employer/"+id, employer)
+        axios.put("https://manager-users-server.vercel.app/edit_employer/"+id, employer)
             .then(resuslt => {
                 if (resuslt.data.Status) {
                     navigate("/dashbord/employer")
