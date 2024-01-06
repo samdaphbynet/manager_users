@@ -18,7 +18,7 @@ export const AddEmployer = () => {
     const [category, setCategory] = useState([]);
 
     useEffect(() => {
-        axios.get("http://localhost:8080/category")
+        axios.get("https://manager-users-server.vercel.app/category")
             .then(res => {
                 if (res.data.Status) {
                     setCategory(res.data.Data || []); // Assurez-vous que Data est défini et est un tableau
